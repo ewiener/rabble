@@ -20,9 +20,15 @@ rather than holding onto one in case a Q comes up soon.
 ruby -Ilib bin/rabble --help
 
 Usage: rabble [options]
-    -w, --word-file                  Path to dictionary, one word per line
-    -n, --num-players=PLAYERS        Number of players
-    -p, --show-plays                 Show each play
-    -b, --show-board                 Show the board after each play
+    -w, --word-file                  Path to dictionary, one word per line [dict/en/standard.txt]
+    -n, --num-players=PLAYERS        Number of players [1]
+    -p, --show-plays=yes|no          Show each play [NO]
+    -b, --show-board=yes|no          Show the board after each play [NO]
     -h, --help                       Print this help
+```
+
+For example, to play a game with 2 plays, printing each play and board:
+
+```
+ruby -Ilib bin/rabble -n 2 -p yes -b yes
 ```

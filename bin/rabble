@@ -8,16 +8,16 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: rabble [options]"
 
-  opts.on("-w", "--word-file", "Path to dictionary, one word per line") do |v|
+  opts.on("-w", "--word-file", "Path to dictionary, one word per line [dict/en/standard.txt]") do |v|
     options[:word_file] = v
   end
-  opts.on("-n", "--num-players=PLAYERS", Integer, "Number of players") do |v|
+  opts.on("-n", "--num-players=PLAYERS", Integer, "Number of players [1]") do |v|
     options[:players] = v
   end
-  opts.on("-p", "--show-plays", "Show each play") do |v|
+  opts.on("-p", "--show-plays=YES|NO", FalseClass, "Show each play [NO]") do |v|
     print_plays = true
   end
-  opts.on("-b", "--show-board", "Show the board after each play") do |v|
+  opts.on("-b", "--show-board=YES|NO", FalseClass, "Show the board after each play [NO]") do |v|
     print_board = true
   end
   opts.on("-h", "--help", "Print this help") do |v|
