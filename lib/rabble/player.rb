@@ -35,7 +35,7 @@ module Rabble
       rack.empty?
     end
 
-    #private
+    private
 
     def best_play
       if game.board.empty?
@@ -73,7 +73,7 @@ module Rabble
         possible_plays_at(square).reduce(best) do |best, play|
           begin
             score = game.board.score(play[:word], play[:square], play[:direction], game.dictionary)
-            if score > best[:score]
+            if score > 0 && score + Random.rand(0.99) > best[:score]
               { score: score, word: play[:word], square: play[:square], direction: play[:direction] }
             else
               best

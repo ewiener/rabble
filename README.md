@@ -31,4 +31,8 @@ For example, to play a game with 2 plays, printing each play and board:
 
 ```
 ruby -Ilib bin/rabble -n 2 -p yes -b yes
-```
+```git
+
+## Dictionaries
+
+[See here for details on the dictionary used.](dict)
