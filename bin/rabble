@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+require 'rabble'
+require 'optparse'
+
+print_plays = print_board = false
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: rabble [options]"
+
+  opts.on("-w", "--word-file", "Path to dictionary, one word per line") do |v|
+    options[:word_file] = v
+  end
+  opts.on("-n", "--num-players=PLAYERS", Integer, "Number of players") do |v|
+    options[:players] = v
+  end
+  opts.on("-p", "--show-plays", "Show each play") do |v|
+    print_plays = true
+  end
+  opts.on("-b", "--show-board", "Show the board after each play") do |v|
+    print_board = true
+  end
+  opts.on("-h", "--help", "Print this help") do |v|
+    puts opts
+    exit
+  end
+end.parse!
+
+game = Rabble::Game.new(options)
+game.play_all(print_plays, print_board)
